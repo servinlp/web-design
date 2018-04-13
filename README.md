@@ -1,4 +1,12 @@
-# web-design
+# Web design
+
+## Design priciples
+
+These are the design principles that I tried to implement in this project.
+
+- Strong visual hierarchies work best (of course)
+- Clarity is job #1
+- Consistency matters
 
 ### Feedback - Desley
 
