@@ -1,28 +1,36 @@
 import { handleClick } from './helpers.js'
 
-function renderNavigation() {
+function renderNavigation( link ) {
 
 	const nav = document.createElement( 'nav' ),
 		ul = document.createElement( 'ul' ),
-		firstLi = document.createElement( 'li' ),
-		firstA = document.createElement( 'a' ),
-		secondLi = document.createElement( 'li' ),
-		secondA = document.createElement( 'a' )
+		links = [
+			[ '/', 'Ser.Vin' ],
+			[ '/about-me', 'About me' ]
+		],
+		fragment = document.createDocumentFragment()
 
-	firstA.setAttribute( 'href', '/' )
-	firstA.addEventListener( 'click', handleClick )
-	firstA.textContent = 'Ser.Vin'
+	links.forEach( el => {
 
-	secondA.setAttribute( 'href', '/about-me' )
-	secondA.addEventListener( 'click', handleClick )
-	secondA.textContent = 'About me'
+		const li = document.createElement( 'li' ),
+			a = document.createElement( 'a' )
 
-	firstLi.appendChild( firstA )
-	secondLi.appendChild( secondA )
+		a.setAttribute( 'href', el[ 0 ] )
+		a.addEventListener( 'click', handleClick )
+		a.textContent = el[ 1 ]
 
-	ul.appendChild( firstLi )
-	ul.appendChild( secondLi )
+		if ( el[ 0 ] === link ) {
 
+			li.setAttribute( 'aria-current', 'page' )
+
+		}
+
+		li.appendChild( a )
+		fragment.appendChild( li )
+
+	} )
+
+	ul.appendChild( fragment )
 	nav.appendChild( ul )
 
 	return nav

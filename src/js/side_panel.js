@@ -1,8 +1,8 @@
 import renderNavigation from './navigation.js'
 
-function renderSide() {
+function renderSide( link ) {
 
-	const nav = renderNavigation(),
+	const nav = renderNavigation( link ),
 		section = document.createElement( 'section' ),
 		h1 = document.createElement( 'h1' )
 

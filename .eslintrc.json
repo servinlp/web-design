@@ -22,6 +22,10 @@
         "no-param-reassign": ["error", { "props": false }],
 		"template-curly-spacing": ["error", "always"],
 		"wrap-iife": ["error", "inside"],
-		"space-before-function-paren": ["error", "never"]
+		"space-before-function-paren": ["error", "never"],
+		"import/extensions": [ "error", "always" ],
+		"prefer-destructuring": [ "error", { "array": false } ],
+		"array-bracket-spacing": [ "error", "always" ],
+		"object-curly-newline": 0
     }
 }

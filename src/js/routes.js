@@ -1,4 +1,5 @@
 import renderSide from './side_panel.js'
+import renderCanvas from './canvas_init.js'
 
 class Routes {
 
@@ -39,9 +40,10 @@ class Routes {
 	get paths() {
 
 		return {
-			'/': () => {
+			'/': req => {
 
-				document.body.appendChild( renderSide() )
+				document.body.appendChild( renderSide( req.paths.go.name ) )
+				document.body.appendChild( renderCanvas() )
 
 			},
 			'/project/:project': req => {
