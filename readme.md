@@ -27,15 +27,15 @@ As `$user` i want to see the projects in there right context.
 - Home page title
 - Home page intro
 - About me
-- project
- - Purpose
- - Scripts used
- - Tools
- - Link to project
- - Dribbble
- - Github
- - Codepen
- - Pictures
+- Project
+	- Purpose
+	- Scripts used
+	- Tools
+	- Link to project
+	- Dribbble
+	- Github
+	- Codepen
+	- Pictures
 
 ### Sketches
 
