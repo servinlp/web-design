@@ -1,12 +1,12 @@
 /* global TweenMax, Power4, Strong */
 
-function focus( bool ) {
+function focus( bool, force ) {
 
-	if ( bool && !this.getFocusState() ) {
+	if ( bool && ( force || !this.getFocusState() ) && this.parent.enableFocus ) {
 
 		focusOn( this )
 
-	} else if ( !bool && this.getFocusState() ) {
+	} else if ( !bool && ( force || this.getFocusState() ) && this.parent.enableFocus ) {
 
 		focusOff( this )
 
@@ -16,7 +16,9 @@ function focus( bool ) {
 
 }
 
-function focusOn( el ) {
+function focusOn( l ) {
+
+	const el = l.parent
 
 	const posY = el.position.y,
 		rotY = el.rotation.y
@@ -26,10 +28,9 @@ function focusOn( el ) {
 
 }
 
-function focusOff( el ) {
+function focusOff( l ) {
 
-	const posy = el.position.y,
-		rotY = el.rotation.y
+	const el = l.parent
 
 	TweenMax.to( el.position, 0.5, { y: el.basePosition.y, ease: Power4.easeInOut } )
 	TweenMax.to( el.rotation, 0.5, { y: 0, ease: Strong.easeInOut } )

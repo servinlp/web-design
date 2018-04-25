@@ -33,6 +33,15 @@ function handleClick( e ) {
 
 }
 
+function setCurrent( el ) {
+
+	const current = document.querySelector( '[aria-current="page"]' )
+	current.removeAttribute( 'aria-current' )
+	el.setAttribute( 'aria-current', 'page' )
+
+}
+
 export {
-	handleClick
+	handleClick,
+	setCurrent
 }

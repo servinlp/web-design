@@ -6,7 +6,13 @@ const scene = new THREE.Scene(),
 	canvas = renderer.domElement,
 	controls = new THREE.OrbitControls( camera )
 
+scene.goRaycast = true
+scene.tabIndex = 0
+scene.tabArray = []
+scene.subTabArray = []
+
 camera.position.z = 20
+controls.enableKeys = false
 
 renderer.setSize( window.innerWidth, window.innerHeight )
 renderer.setPixelRatio( window.devicePixelRatio )
@@ -18,6 +24,12 @@ const raycaster = new THREE.Raycaster(),
 	mouse = new THREE.Vector2()
 
 window.addEventListener( 'mousemove', onMouseMove )
+
+const hemisphereLight = new THREE.HemisphereLight( 0xffffbb, 0x080820, 0.3 ),
+	ambientLight = new THREE.AmbientLight( 0x404040 )
+
+scene.add( ambientLight )
+scene.add( hemisphereLight )
 
 function onMouseMove( event ) {
 
@@ -42,5 +54,6 @@ export {
 	camera,
 	renderer,
 	raycaster,
-	mouse
+	mouse,
+	controls
 }

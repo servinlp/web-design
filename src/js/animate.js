@@ -1,31 +1,42 @@
 import { renderer, scene, camera, raycaster, mouse } from './base.js'
-import { projectsElements } from './canvas_init.js'
 
 function animate() {
 
-	raycaster.setFromCamera( mouse, camera )
+	if ( scene.goRaycast ) {
 
-	const intersects = raycaster.intersectObjects( projectsElements )
+		raycaster.setFromCamera( mouse, camera )
 
-	if ( intersects.length > 0 ) {
+		const intersects = raycaster.intersectObjects( scene.tabArray )
 
-		for ( let i = 0; i < intersects.length; i++ ) {
+		if ( intersects.length > 0 ) {
 
-			intersects[ i ].object.focus( true )
+			for ( let i = 0; i < intersects.length; i++ ) {
+
+				if ( intersects[ i ].object.parent.enableFocus ) {
+
+					intersects[ i ].object.focus( true )
+
+				}
+
+			}
 
 		}
 
+		scene.tabArray.forEach( el => {
+
+			if ( !intersects.filter( l => l.object === el )[ 0 ] && el.focusState ) {
+
+				if ( el.parent.enableFocus && !el.tabFocus ) {
+
+					el.focus( false )
+					
+				}
+
+			}
+
+		} )
+		
 	}
-
-	projectsElements.forEach( el => {
-
-		if ( !intersects.filter( l => l.object === el )[ 0 ] && el.focusState ) {
-
-			el.focus( false )
-
-		}
-
-	} )
 
 	renderer.render( scene, camera )
 

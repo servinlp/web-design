@@ -45,6 +45,14 @@ class Routes {
 				document.body.appendChild( renderSide( req.paths.go.name ) )
 				document.body.appendChild( renderCanvas() )
 
+				const a = document.createElement( 'a' )
+
+				a.setAttribute( 'href', '#' )
+				a.textContent = 'Hi'
+				a.style.color = 'black'
+
+				// document.body.appendChild( a )
+
 			},
 			'/project/:project': req => {
 
