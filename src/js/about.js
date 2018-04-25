@@ -17,7 +17,7 @@ function renderAboutPage( transition ) {
 
 	p.textContent = 'A Front End Developer. Currently in his third year on Communication and Multimedia Design at the Amsterdam University of Applied Sciences. Before this I graduated from the MediaCollege Amsterdam where I did Interactive Design (Now renamed to MediaDesigner). On the MediaCollege I found my passion which I took with me to CMD. Next to school I love to play around with code in my free time. Playing with 3D and animations or just making an idea i had.'
 
-	img.setAttribute( 'src', '/img/me.jpg' )
+	img.setAttribute( 'src', '/image/me.jpg' )
 	img.setAttribute( 'alt', '' )
 
 	div.classList.add( 'about' )

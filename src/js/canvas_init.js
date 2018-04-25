@@ -9,6 +9,7 @@ import { keyBoardControlsDown,
 	onBlurResetAll,
 	controlList
 } from './keyboard_controls.js'
+import { allControlsDown, allControlsUp } from './rotate_object.js'
 
 function renderCanvas() {
 
@@ -22,8 +23,7 @@ function renderCanvas() {
 
 function initCanvas() {
 
-	const axesHelper = new THREE.AxesHelper( 5 )
-
+	// const axesHelper = new THREE.AxesHelper( 5 )
 	// scene.add( axesHelper )
 
 	THREE.Mesh.prototype.focus = focus
@@ -35,6 +35,9 @@ function initCanvas() {
 		createProject( el )
 
 	} )
+
+	window.addEventListener( 'keydown', allControlsDown )
+	window.addEventListener( 'keyup', allControlsUp )
 
 	renderer.domElement.addEventListener( 'keydown', keyBoardControlsDown )
 	renderer.domElement.addEventListener( 'keyup', keyBoardControlsUp )
@@ -53,7 +56,7 @@ function initCanvas() {
 
 			scene.tabIndex = 0
 
-		} else {
+		} else if ( controlList.Tab ) {
 
 			scene.tabIndex -= 2
 

@@ -213,9 +213,8 @@ section div a {
 	position: absolute;
 	top: 0;
 	right: 0;
-	transform: translateX( 100% );
-	width: 300px;
-	height: auto;
+	transform: translateX( calc( 100% + 4em ) );
+	width: 30vw;
 }
 
 .to-project {
@@ -223,4 +222,9 @@ section div a {
 	text-decoration: none;
 	border: 2px solid #fff;
 	padding: 10px 15px;
+}
+
+a:focus,
+button:focus {
+	border: 3px dotted yellow;
 }

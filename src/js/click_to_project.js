@@ -5,8 +5,6 @@ import { scene, camera, raycaster, mouse } from './base.js'
 
 function clickToProject( e ) {
 
-	console.log( 'click', e )
-
 	scene.goRaycast = false
 
 	raycaster.setFromCamera( mouse, camera )
@@ -21,7 +19,7 @@ function clickToProject( e ) {
 
 }
 
-function click( element ) {
+function click( element, tab ) {
 
 	const allExept = scene.tabArray.filter( el => el !== element ),
 		nav = document.querySelector( 'section nav' ),
@@ -34,7 +32,11 @@ function click( element ) {
 
 	if ( button ) {
 
-		TweenMax.to( button, 1, { css: { transform: 'translateY( -5rem )', opacity: 0 }, ease: Power4.easeInOut, onComplete() { this.target.remove() } } )
+		TweenMax.to( button, 1, { css: { transform: 'translateY( -5rem )', opacity: 0 }, ease: Power4.easeInOut, onComplete() { 
+			
+			this.target.remove()
+
+		} } )
 
 	}
 
@@ -42,7 +44,7 @@ function click( element ) {
 
 		this.target.remove()
 		section.appendChild( projectInfo( element.parent.info, true ) )
-		nav.appendChild( renderBackButton( true ) )
+		nav.appendChild( renderBackButton( true, tab ) )
 
 	} } )
 
@@ -53,6 +55,10 @@ function goToProject( box ) {
 	const container = box.parent,
 		info = container.info,
 		{ x, y, z } = info.positionTo
+
+	box.material.wireframe = false
+	box.material.color.setHex( 0x000000 )
+	box.material.opacity = 0
 
 	container.enableFocus = false
 

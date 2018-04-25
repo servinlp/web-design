@@ -4,7 +4,7 @@ import { scene } from './base.js'
 import { setCurrent } from './helpers.js'
 import { renderPageTitle } from './side_panel.js'
 
-function renderBackButton( transition ) {
+function renderBackButton( transition, tab ) {
 
 	const button = document.createElement( 'button' ),
 		firstDiv = document.createElement( 'div' ),
@@ -33,7 +33,16 @@ function renderBackButton( transition ) {
 					transform: 'translateY( 0 )',
 					opacity: 1
 				},
-				ease: Power4.easeInOut
+				ease: Power4.easeInOut,
+				onComplete() {
+
+					if ( tab ) {
+
+						button.focus()
+				
+					}
+
+				}
 			}
 		)
 
@@ -45,7 +54,6 @@ function renderBackButton( transition ) {
 
 function goBack( e ) {
 
-	// const button = e.target,
 	const firstLi = document.querySelector( 'nav li' ),
 		button = document.querySelector( '.back-button' ),
 		section = document.querySelector( 'section' ),
@@ -72,8 +80,7 @@ function goBack( e ) {
 				{ x, y, z } = info.position
 
 			container.enableFocus = true
-
-			console.log( container )
+			scene.tabArray = scene.subTabArray
 
 			TweenMax.to( container.rotation, 0.5, { x: 0, y: 0, z: 0, ease: Power4.easeInOut } )
 			TweenMax.to( container.position, 0.5, { x: x, y: y, z: z, ease: Power4.easeInOut } )
@@ -84,6 +91,8 @@ function goBack( e ) {
 		scene.goRaycast = true
 
 	} } )
+
+	// scene.tabIndex = 0
 
 	scene.tabArray.forEach( el => {
 

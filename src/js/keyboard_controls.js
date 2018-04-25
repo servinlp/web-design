@@ -1,13 +1,7 @@
 import { scene } from './base.js'
 import { click } from './click_to_project.js'
 
-const controlList = {},
-	rotation = {
-		ArrowLeft: [ 'y', -0.5 ],
-		ArrowRight: [ 'y', 0.5 ],
-		ArrowUp: [ 'z', -0.5 ],
-		ArrowDown: [ 'z', 0.5 ]
-	}
+const controlList = {}
 
 function keyBoardControlsDown( e ) {
 
@@ -29,20 +23,7 @@ function keyBoardControlsUp( e ) {
 
 function checkKeysPressed( e ) {
 
-	console.log( controlList )
 	let prevent = false
-
-	if ( e.key && ( controlList.ArrowLeft || controlList.ArrowRight || controlList.ArrowUp || controlList.ArrowDown ) && scene.tabArray[ scene.tabIndex ] ) {
-
-		console.log( 'run', scene.tabArray[ scene.tabIndex ] )
-		const element = scene.tabArray[ scene.tabIndex ],
-			r = rotation[ e.key ]
-
-		element.parent.rotation[ r[ 0 ] ] += r[ 1 ]
-
-		prevent = true
-
-	}
 
 	// - 1 because once you click on Enter
 	// the scene.tabIndex will have already been update to the next
@@ -52,7 +33,7 @@ function checkKeysPressed( e ) {
 		const element = scene.tabArray[ scene.tabIndex - 1 ]
 		// allExept = scene.tabArray.filter( el => el !== element )
 
-		click( element )
+		click( element, true )
 
 		scene.tabArray = [ element ]
 		scene.tabIndex = 0
@@ -67,7 +48,7 @@ function checkKeysPressed( e ) {
 		if ( scene.tabArray[ scene.tabIndex - 1 ] ) {
 
 			scene.tabArray[ scene.tabIndex - 1 ].tabFocus = false
-			scene.tabArray[ scene.tabIndex - 1 ].focus( false )
+			scene.tabArray[ scene.tabIndex - 1 ].focus( false, true )
 
 		}
 
@@ -88,7 +69,7 @@ function checkKeysPressed( e ) {
 		if ( scene.tabArray[ scene.tabIndex - 1 ] ) {
 
 			scene.tabArray[ scene.tabIndex - 1 ].tabFocus = false
-			scene.tabArray[ scene.tabIndex - 1 ].focus( false )
+			scene.tabArray[ scene.tabIndex - 1 ].focus( false, true )
 
 		}
 
