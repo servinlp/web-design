@@ -100,6 +100,7 @@ body {
 	margin: 0;
 	font-family: 'Avenir';
 	overflow-x: hidden;
+	background-color: #000;
 }
 
 canvas {
@@ -146,6 +147,7 @@ nav li[aria-current="page"] {
 nav li a {
 	color: #fff;
 	text-decoration: none;
+	border: 3px dotted transparent;
 }
 
 section > div {
@@ -157,7 +159,7 @@ section > div {
 
 section h1 {
 	font-size: 9vw;
-	margin-bottom: 0.5em;
+	margin-bottom: 0;
 }
 
 section h2 {
@@ -165,7 +167,7 @@ section h2 {
 }
 
 section div a {
-	display: block;
+	/* display: block; */
 	margin-bottom: 1em;
 }
 
@@ -227,4 +229,31 @@ section div a {
 a:focus,
 button:focus {
 	border: 3px dotted yellow;
+}
+
+.arrow-container {
+	position: fixed;
+	right: -25vw;
+	bottom: 2em;
+	transform: translateX( 50% );
+	color: #fff
+}
+
+.arrow-container div {
+	display: inline-block;
+	width: 2em;
+	height: 2em;
+	line-height: 2em;
+	font-size: 1.3em;
+	text-align: center;
+	border: 1px solid #fff;
+}
+
+.arrow-container div:first-child {
+	display: block;
+	margin: 0 auto;
+}
+
+.for span {
+	font-weight: 800;
 }

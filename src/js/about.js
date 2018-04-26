@@ -13,9 +13,9 @@ function renderAboutPage( transition ) {
 
 	setCurrent( li )
 
-	h1.textContent = 'About Servin'
+	h1.textContent = 'I am Servin'
 
-	p.textContent = 'A Front End Developer. Currently in his third year on Communication and Multimedia Design at the Amsterdam University of Applied Sciences. Before this I graduated from the MediaCollege Amsterdam where I did Interactive Design (Now renamed to MediaDesigner). On the MediaCollege I found my passion which I took with me to CMD. Next to school I love to play around with code in my free time. Playing with 3D and animations or just making an idea i had.'
+	p.textContent = 'A Front End Developer who is passionate about all things web. Currently I am attending the Communication and Multimedia Design study at the Amsterdam University of Applied Sciences. I found my love/interest/drive for Web Development at my previous study where I first got exposed to code. I enjoy working with the latest in web technologies, with 3D and Node.js being my current interests.'
 
 	img.setAttribute( 'src', '/image/me.jpg' )
 	img.setAttribute( 'alt', '' )

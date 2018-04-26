@@ -9,11 +9,13 @@ function projectInfo( info, transition ) {
 		p = document.createElement( 'p' ),
 		projectLink = document.createElement( 'a' ),
 		tools = document.createElement( 'h2' ),
-		toolsFragment = document.createDocumentFragment()
+		toolsFragment = document.createDocumentFragment(),
+		forP = document.createElement( 'p' ),
+		forSpan = document.createElement( 'span' )
 
 	h1.textContent = info.title
 	doel.textContent = 'Doel:'
-	p.textContent = info.text
+	p.innerHTML = info.text
 
 	tools.textContent = 'Tools:'
 	info.tools.forEach( el => {
@@ -33,12 +35,37 @@ function projectInfo( info, transition ) {
 	projectLink.classList.add( 'to-project' )
 	projectLink.setAttribute( 'target', '_black' )
 
+	forSpan.textContent = 'For: '
+	forP.appendChild( forSpan )
+	forP.innerHTML += info.for
+	forP.classList.add( 'for' )
+
 	container.appendChild( h1 )
 	container.appendChild( doel )
 	container.appendChild( p )
+	container.appendChild( forP )
+	container.appendChild( projectLink )
 	container.appendChild( tools )
 	container.appendChild( toolsFragment )
-	container.appendChild( projectLink )
+
+	const arrowContainer = document.createElement( 'div' ),
+		leftArrow = document.createElement( 'div' ),
+		rightArrow = document.createElement( 'div' ),
+		topArrow = document.createElement( 'div' ),
+		bottomArrow = document.createElement( 'div' )
+
+	leftArrow.textContent = '←'
+	rightArrow.textContent = '→'
+	topArrow.textContent = '↑'
+	bottomArrow.textContent = '	↓'
+
+	arrowContainer.appendChild( topArrow )
+	arrowContainer.appendChild( leftArrow )
+	arrowContainer.appendChild( bottomArrow )
+	arrowContainer.appendChild( rightArrow )
+	arrowContainer.classList.add( 'arrow-container' )
+
+	container.appendChild( arrowContainer )
 
 	if ( transition ) {
 

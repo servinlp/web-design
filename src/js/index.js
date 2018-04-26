@@ -10,7 +10,9 @@ import routes from './routes.js'
 	document.body.appendChild( stats.dom )
 
 	stats.dom.style.right = 0
+	stats.dom.style.bottom = 0
 	stats.dom.style.left = 'initial'
+	stats.dom.style.top = 'initial'
 
 	function animate() {
 

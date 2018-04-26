@@ -2,7 +2,8 @@ export default [
 	{
 		title: 'Mountain',
 		projectLink: 'https://poly.google.com/u/1/view/6qp53W5djC5',
-		text: 'This object is a part of the project Forgo (coming soon).',
+		text: 'This object is a part of the project <a href="https://github.com/servinlp/forgo">Forgo</a> (coming soon). Here it was used to create a part of the scenerie responsible for helping you relax.',
+		for: 'School',
 		filePath: '/objects/mountain/',
 		path: '/project/mountain',
 		object: 'model.obj',
@@ -16,7 +17,8 @@ export default [
 	{
 		title: 'Fire Wood',
 		projectLink: 'https://poly.google.com/u/1/view/2aMwBNdr0vb',
-		text: 'This object is a part of the project Forgo (coming soon).',
+		text: 'This object is a part of the project <a href="https://github.com/servinlp/forgo">Forgo</a> (coming soon). Here it was used to create a part of the scenerie responsible for helping you relax.',
+		for: 'School',
 		filePath: '/objects/fire-wood/',
 		path: '/project/fire-wood',
 		object: 'model.obj',
@@ -30,7 +32,8 @@ export default [
 	{
 		title: 'Hand',
 		projectLink: 'https://poly.google.com/u/1/view/cVUVOtHGRn_',
-		text: 'This object is a part of the project Forgo (coming soon).',
+		text: 'This object is a part of the project <a href="https://github.com/servinlp/forgo">Forgo</a> (coming soon). Here it was used to create a part of the scenerie responsible for helping you relax.',
+		for: 'School',
 		filePath: '/objects/hand/',
 		path: '/project/hand',
 		object: 'model.obj',
