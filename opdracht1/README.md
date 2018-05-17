@@ -9,8 +9,16 @@
 These are the design principles that I tried to implement in this project.
 
 - Strong visual hierarchies work best (of course)
+
+Strong visual hierarchie is achieved by keeping a constant view. Left the title + navigation, right the projects. All the projects have the same layout, top left the title and bottom right the "more link" (the actual link is over the entire element).
+
 - Clarity is job #1
+
+Using large titles and clear buttons I tried to make the website as clear as possible. Thanks to the user tests I held a few problems with clarity are already resolved. For example the buttons of the slider are now more clear then they were before.
+
 - Consistency matters
+
+Consistency matters and strong visual hierachies work best are 2 priciples that work hand in hand. Because my hierachie is set from the start, it doesn't change at all (and stays consistent).
 
 ### Feedback - Desley
 
