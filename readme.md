@@ -17,7 +17,7 @@ In my case this point only applies when people are actually rotating the 3D obje
 
 ### User scenario
 
-As `$user` i want to see the projects in there right context.
+As `$user` i want to see the projects in there right context to see if this person is fit to hire as an intern.
 
 `$user`
 
@@ -31,7 +31,7 @@ As `$user` i want to see the projects in there right context.
 - To leave a good impression of my work
 - To have them contact me
 
-### Content 
+### Content
 
 - 2D
 - 3D
