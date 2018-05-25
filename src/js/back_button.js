@@ -3,6 +3,7 @@
 import { scene } from './base.js'
 import { setCurrent } from './helpers.js'
 import { renderPageTitle } from './side_panel.js'
+import { thumbnailToProject } from './click_to_project.js'
 
 function renderBackButton( transition, tab ) {
 
@@ -57,11 +58,20 @@ function goBack( e ) {
 	const firstLi = document.querySelector( 'nav li' ),
 		button = document.querySelector( '.back-button' ),
 		section = document.querySelector( 'section' ),
-		div = document.querySelector( 'section > div' )
+		div = document.querySelector( 'section > div' ),
+		thumbnails = document.querySelector( '.thumbnails' ),
+		thumbnailsLinks = Array.from( thumbnails.querySelectorAll( 'a' ) ),
+		contact = document.querySelector( '.contact' )
+
+	thumbnailsLinks.forEach( el => {
+
+		el.removeEventListener( 'click', thumbnailToProject )
+
+	} )
 
 	setCurrent( firstLi )
 
-	TweenMax.to( [ button, div ], 1, { css: { transform: 'translateY( -5rem )', opacity: 0 }, ease: Power4.easeInOut, onComplete() {
+	TweenMax.to( [ button, div, thumbnails, contact ], 1, { css: { transform: 'translateY( -5rem )', opacity: 0 }, ease: Power4.easeInOut, onComplete() {
 
 		this.target.forEach( el => {
 

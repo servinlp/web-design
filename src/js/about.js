@@ -2,6 +2,7 @@
 
 import { scene } from './base.js'
 import { setCurrent } from './helpers.js'
+import { thumbnailToProject } from './click_to_project.js'
 
 function renderAboutPage( transition ) {
 
@@ -57,11 +58,20 @@ function goToAbout( e ) {
 	const secondLi = document.querySelectorAll( 'nav li' )[ 1 ],
 		button = document.querySelector( '.back-button' ),
 		section = document.querySelector( 'section' ),
-		div = document.querySelector( 'section > div' )
+		div = document.querySelector( 'section > div' ),
+		thumbnails = document.querySelector( '.thumbnails' ),
+		thumbnailsLinks = Array.from( thumbnails.querySelectorAll( 'a' ) ),
+		contact = document.querySelector( '.contact' )
+
+	thumbnailsLinks.forEach( el => {
+
+		el.removeEventListener( 'click', thumbnailToProject )
+
+	} )
 
 	setCurrent( secondLi )
 
-	TweenMax.to( [ button, div ], 1, { css: { transform: 'translateY( -5rem )', opacity: 0 }, ease: Power4.easeInOut, onComplete() {
+	TweenMax.to( [ button, div, thumbnails, contact ], 1, { css: { transform: 'translateY( -5rem )', opacity: 0 }, ease: Power4.easeInOut, onComplete() {
 
 		this.target.forEach( el => {
 

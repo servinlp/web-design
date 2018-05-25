@@ -9,7 +9,11 @@ import { keyBoardControlsDown,
 	onBlurResetAll,
 	controlList
 } from './keyboard_controls.js'
-import { allControlsDown, allControlsUp } from './rotate_object.js'
+import {
+	allControlsDown,
+	allControlsUp,
+	allControlList
+} from './rotate_object.js'
 
 function renderCanvas() {
 
@@ -30,7 +34,7 @@ function initCanvas() {
 	THREE.Mesh.prototype.setFocusState = setFocusState
 	THREE.Mesh.prototype.getFocusState = getFocusState
 
-	projects.forEach( el => {
+	projects.map( ( el, i ) => ( { ...el, index: i } ) ).forEach( el => {
 
 		createProject( el )
 
@@ -39,15 +43,18 @@ function initCanvas() {
 	window.addEventListener( 'keydown', allControlsDown )
 	window.addEventListener( 'keyup', allControlsUp )
 
-	renderer.domElement.addEventListener( 'keydown', keyBoardControlsDown )
-	renderer.domElement.addEventListener( 'keyup', keyBoardControlsUp )
 	renderer.domElement.addEventListener( 'focus', () => {
 
-		console.log( 'onfocus' )
-		keyBoardControlsDown( 'Tab' )
-		keyBoardControlsUp( 'Tab' )
+		if ( allControlList.Tab !== undefined ) {
+
+			console.log( 'onfocus' )
+			keyBoardControlsDown( 'Tab' )
+			keyBoardControlsUp( 'Tab' )
+
+		}
 
 	} )
+
 	renderer.domElement.addEventListener( 'blur', () => {
 
 		console.log( 'onblur', controlList )
@@ -66,6 +73,9 @@ function initCanvas() {
 
 	} )
 
+	renderer.domElement.addEventListener( 'keydown', keyBoardControlsDown )
+	renderer.domElement.addEventListener( 'keyup', keyBoardControlsUp )
+
 	renderer.animate( animate )
 
 }
@@ -83,29 +93,40 @@ function createProject( obj ) {
 		} ),
 		mesh = new THREE.Mesh( geometry, material )
 
-	const MTLLoader = new THREE.MTLLoader()
+	if ( obj.material && obj.object ) {
 
-	MTLLoader.setPath( obj.filePath )
+		const MTLLoader = new THREE.MTLLoader()
 
-	MTLLoader.load( obj.material, materials => {
+		MTLLoader.setPath( obj.filePath )
 
-		materials.preload()
+		MTLLoader.load( obj.material, materials => {
 
-		const OBJLoader = new THREE.OBJLoader()
-		OBJLoader.setMaterials( materials )
-		OBJLoader.setPath( obj.filePath )
+			materials.preload()
 
-		OBJLoader.load( obj.object, object => {
+			const OBJLoader = new THREE.OBJLoader()
+			OBJLoader.setMaterials( materials )
+			OBJLoader.setPath( obj.filePath )
 
-			// object.detail.loaderRootNode.scale.x = obj.scale
-			// object.detail.loaderRootNode.scale.y = obj.scale
-			// object.detail.loaderRootNode.scale.z = obj.scale
+			OBJLoader.load( obj.object, object => {
 
-			object.scale.x = obj.scale
-			object.scale.y = obj.scale
-			object.scale.z = obj.scale
+				// object.detail.loaderRootNode.scale.x = obj.scale
+				// object.detail.loaderRootNode.scale.y = obj.scale
+				// object.detail.loaderRootNode.scale.z = obj.scale
 
-			container.add( object )
+				object.scale.x = obj.scale
+				object.scale.y = obj.scale
+				object.scale.z = obj.scale
+
+				object.myObject = true
+
+				container.add( object )
+
+			}, () => {}, err => {
+
+				// error
+				console.log( err )
+
+			} )
 
 		}, () => {}, err => {
 
@@ -114,12 +135,23 @@ function createProject( obj ) {
 
 		} )
 
-	}, () => {}, err => {
+	} else {
 
-		// error
-		console.log( err )
+		const boxGeometry = new THREE.BoxGeometry(
+				obj.textureBoxSize.x,
+				obj.textureBoxSize.y,
+				obj.textureBoxSize.z
+			),
+			boxMaterial = new THREE.MeshBasicMaterial( {
+				map: THREE.ImageUtils.loadTexture( obj.texture )
+			} ),
+			box = new THREE.Mesh( boxGeometry, boxMaterial )
 
-	} )
+		box.myObject = true
+
+		container.add( box )
+
+	}
 
 	container.translateX( obj.position.x )
 	container.translateY( obj.position.y )

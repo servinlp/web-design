@@ -1,5 +1,6 @@
 import { scene } from './base.js'
 import { click } from './click_to_project.js'
+import { rotation } from './rotate_object.js'
 
 const controlList = {}
 
@@ -29,7 +30,6 @@ function checkKeysPressed( e ) {
 	// the scene.tabIndex will have already been update to the next
 	if ( controlList.Enter && scene.tabArray[ scene.tabIndex - 1 ] ) {
 
-		console.log( 'click' )
 		const element = scene.tabArray[ scene.tabIndex - 1 ]
 		// allExept = scene.tabArray.filter( el => el !== element )
 
@@ -42,8 +42,6 @@ function checkKeysPressed( e ) {
 	}
 
 	if ( controlList.Tab && controlList.Shift ) {
-
-		console.log( 'back' )
 
 		if ( scene.tabArray[ scene.tabIndex - 1 ] ) {
 
@@ -63,8 +61,6 @@ function checkKeysPressed( e ) {
 		scene.tabIndex -= 1
 
 	} else if ( controlList.Tab ) {
-
-		console.log( 'forward' )
 
 		if ( scene.tabArray[ scene.tabIndex - 1 ] ) {
 
@@ -87,7 +83,6 @@ function checkKeysPressed( e ) {
 
 	if ( e.preventDefault && prevent ) {
 
-		console.log( 'run' )
 		e.preventDefault()
 
 	}

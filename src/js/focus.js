@@ -28,7 +28,10 @@ function focusOn( l, force ) {
 		l.material.wireframe = true
 		l.material.color.setHex( 0xffffff )
 
-		TweenMax.to( l.material, 0.5, { opacity: 1, ease: Strong.easeInOut } )
+		TweenMax.to( l.material, 0.5, {
+			opacity: 1,
+			ease: Strong.easeInOut
+		} )
 
 	}
 

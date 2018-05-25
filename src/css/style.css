@@ -105,6 +105,8 @@ body {
 
 canvas {
 	display: block;
+	position: absolute;
+	top: 0;
 }
 
 a {
@@ -112,11 +114,9 @@ a {
 }
 
 section {
-	position: absolute;
-	top: 0;
-	left: 0;
+	position: relative;
+	z-index: 1;
 	width: 50%;
-	min-height: 100vh;
 	color: #fff;
 }
 
@@ -160,6 +160,7 @@ section > div {
 section h1 {
 	font-size: 9vw;
 	margin-bottom: 0;
+	margin-top: 0.3em;
 }
 
 section h2 {
@@ -167,7 +168,6 @@ section h2 {
 }
 
 section div a {
-	/* display: block; */
 	margin-bottom: 1em;
 }
 
@@ -228,7 +228,7 @@ section div a {
 
 a:focus,
 button:focus {
-	border: 3px dotted yellow;
+	border: 3px dotted yellow !important;
 }
 
 .arrow-container {
@@ -251,9 +251,69 @@ button:focus {
 
 .arrow-container div:first-child {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto -1px;
+}
+
+.arrow-container div:nth-child( 2 ) {
+	margin-right: -1px;
+}
+
+.arrow-container div:nth-child( 3 ) {
+	border-top-color: transparent;
+	border-left-color: transparent;
+	border-right-color: transparent;
+}
+
+.arrow-container div:nth-child( 4 ) {
+	margin-left: -1px;
 }
 
 .for span {
 	font-weight: 800;
+}
+
+.contact {
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	padding: 2em;
+}
+
+.contact p {
+	color: #fff;
+	font-size: 1.7em;
+	margin-top: 0;
+}
+
+.contact a {
+	margin: 0 1em;
+	text-decoration: none;
+	border-bottom: 1px solid #fff;
+	padding-bottom: 0.4em;
+	display: inline-block;
+}
+
+.thumbnails {
+	position: relative;
+	z-index: 1;
+	margin-top: 3em;
+}
+
+.thumbnails h2 {
+	color: #fff;
+	padding: 1em;
+	margin: 0;
+}
+
+.thumbnails a {
+	display: inline-block;
+	width: calc( 50% - 6px );
+	text-align: center;
+	border: 3px dotted transparent;
+}
+
+.thumbnails img {
+	width: 100%;
+	max-height: 300px;
+	object-fit: cover;
 }

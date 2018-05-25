@@ -1,6 +1,6 @@
 import { scene } from './base.js'
 
-const controlList = {},
+const allControlList = {},
 	rotation = {
 		ArrowLeft: [ 'y', -0.5 ],
 		ArrowRight: [ 'y', 0.5 ],
@@ -12,7 +12,7 @@ function allControlsDown( e ) {
 
 	const key = e.key || e
 
-	controlList[ key ] = true
+	allControlList[ key ] = true
 
 	checkKeysPressed( e )
 
@@ -22,7 +22,7 @@ function allControlsUp( e ) {
 
 	const key = e.key || e
 
-	controlList[ key ] = false
+	allControlList[ key ] = false
 
 }
 
@@ -32,10 +32,10 @@ function checkKeysPressed( e ) {
 	if (
 		e.key &&
 		( 
-			controlList.ArrowLeft ||
-			controlList.ArrowRight ||
-			controlList.ArrowUp ||
-			controlList.ArrowDown
+			allControlList.ArrowLeft ||
+			allControlList.ArrowRight ||
+			allControlList.ArrowUp ||
+			allControlList.ArrowDown
 		) &&
 		scene.tabArray[ scene.tabIndex ] &&
 		!scene.tabArray[ scene.tabIndex ].parent.enableFocus
@@ -52,5 +52,7 @@ function checkKeysPressed( e ) {
 
 export {
 	allControlsDown,
-	allControlsUp
+	allControlsUp,
+	allControlList,
+	rotation
 }

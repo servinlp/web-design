@@ -1,34 +1,21 @@
 /* global TweenMax, Power4 */
 
+import renderContactBar from './render_contact_bar.js'
+import renderThumbnails from './render_project_thumbnail.js'
+
 function projectInfo( info, transition ) {
 
-	console.log( info )
 	const container = document.createElement( 'div' ),
 		h1 = document.createElement( 'h1' ),
 		doel = document.createElement( 'h2' ),
 		p = document.createElement( 'p' ),
 		projectLink = document.createElement( 'a' ),
-		tools = document.createElement( 'h2' ),
-		toolsFragment = document.createDocumentFragment(),
 		forP = document.createElement( 'p' ),
 		forSpan = document.createElement( 'span' )
 
 	h1.textContent = info.title
 	doel.textContent = 'Doel:'
 	p.innerHTML = info.text
-
-	tools.textContent = 'Tools:'
-	info.tools.forEach( el => {
-
-		const a = document.createElement( 'a' )
-
-		a.textContent = el[ 0 ]
-		a.setAttribute( 'href', el[ 1 ] )
-		a.setAttribute( 'target', '_black' )
-
-		toolsFragment.appendChild( a )
-
-	} )
 
 	projectLink.textContent = 'View the project'
 	projectLink.setAttribute( 'href', info.projectLink )
@@ -45,8 +32,35 @@ function projectInfo( info, transition ) {
 	container.appendChild( p )
 	container.appendChild( forP )
 	container.appendChild( projectLink )
-	container.appendChild( tools )
-	container.appendChild( toolsFragment )
+
+	if ( info.tools ) {
+
+		const tools = document.createElement( 'h2' ),
+			toolsFragment = document.createDocumentFragment()
+
+		tools.textContent = 'Tools:'
+		info.tools.forEach( el => {
+
+			const a = document.createElement( 'a' )
+
+			a.textContent = el[ 0 ]
+			a.setAttribute( 'href', el[ 1 ] )
+			a.setAttribute( 'target', '_black' )
+
+			toolsFragment.appendChild( a )
+
+		} )
+
+		container.appendChild( tools )
+		container.appendChild( toolsFragment )
+
+	}
+
+	const contact = renderContactBar(),
+		thumbnails = renderThumbnails()
+
+	document.body.appendChild( thumbnails )
+	document.body.appendChild( contact )
 
 	const arrowContainer = document.createElement( 'div' ),
 		leftArrow = document.createElement( 'div' ),
@@ -70,7 +84,7 @@ function projectInfo( info, transition ) {
 	if ( transition ) {
 
 		TweenMax.fromTo(
-			container,
+			[ container, contact, thumbnails ],
 			1,
 			{ css:
 				{

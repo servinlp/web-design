@@ -1,5 +1,6 @@
 import renderSide from './side_panel.js'
 import renderCanvas from './canvas_init.js'
+import renderContactBar from './render_contact_bar.js'
 
 class Routes {
 
@@ -44,14 +45,7 @@ class Routes {
 
 				document.body.appendChild( renderSide( req.paths.go.name ) )
 				document.body.appendChild( renderCanvas() )
-
-				const a = document.createElement( 'a' )
-
-				a.setAttribute( 'href', '#' )
-				a.textContent = 'Hi'
-				a.style.color = 'black'
-
-				// document.body.appendChild( a )
+				// document.body.appendChild( renderContactBar() )
 
 			},
 			'/project/:project': req => {
