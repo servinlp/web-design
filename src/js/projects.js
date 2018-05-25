@@ -2,7 +2,7 @@ export default [
 	{
 		title: 'Mountain',
 		projectLink: 'https://poly.google.com/u/1/view/6qp53W5djC5',
-		text: 'This object is a part of the project <a href="https://github.com/servinlp/forgo">Forgo</a> (coming soon). Here it was used to create a part of the scenerie responsible for helping you relax.',
+		text: 'This object is a part of the project <a href="https://github.com/servinlp/forgo">Forgo</a> (coming soon). Here it was used to create a part of the scenerie responsible for helping you relax.<br><br><br><br><br><br><br><br><br>',
 		for: 'School',
 		thumbnail: '/image/mountain.png',
 		filePath: '/objects/mountain/',
@@ -18,7 +18,7 @@ export default [
 	{
 		title: 'Console',
 		projectLink: 'https://github.com/servinlp/Console',
-		text: '<p>Not necessarily VR but a little project that saved me a lot of time and problems. With this you can write your console to the DOM. The reason I started this project was because I wanted to have a console inside of VR. This was my first step in this project. To make one inside the DOM. Problem with making this for VR was performance. Whenever something was put in the console a new TextGeometry would be added. The more you added the more it would start to crash.</p><p>Current uses for this project is when i’m working for the GearVR. Because this does not have a console this makes it so much easier.</p>',
+		text: '<p>Not necessarily VR but a little project that saved me a lot of time and problems. With this you can write your console to the DOM. The reason I started this project was because I wanted to have a console inside of VR. This was my first step in this project. To make one inside the DOM. Problem with making this for VR was performance. Whenever something was put in the console a new TextGeometry would be added. The more you added the more it would start to crash.</p><p>Current uses for this project is when i’m working for the GearVR. Because this does not have a console this makes it so much easier.</p><br><br><br><br><br>',
 		for: 'Free time',
 		thumbnail: '/image/console-512.png',
 		texture: '/image/console-512.png',
@@ -47,7 +47,7 @@ export default [
 	{
 		title: 'Hand',
 		projectLink: 'https://poly.google.com/u/1/view/cVUVOtHGRn_',
-		text: 'This object is a part of the project <a href="https://github.com/servinlp/forgo">Forgo</a> (coming soon). Here it was used to create a part of the scenerie responsible for helping you relax.',
+		text: 'This object is a part of the project <a href="https://github.com/servinlp/forgo">Forgo</a> (coming soon). Here it was used to create a part of the scenerie responsible for helping you relax.<br><br><br><br><br><br><br>',
 		for: 'School',
 		thumbnail: '/image/hand.png',
 		filePath: '/objects/hand/',
@@ -90,7 +90,7 @@ export default [
 	{
 		title: 'Amsterdone',
 		projectLink: 'http://amsterdone.nl/',
-		text: `<p>As winner of the project ISGA (International Students Guide Amsterdam), <a href="https://meesrutten.me/">Mees Rutten</a> had the opportunity to make his idea into a functioning product. His idea was to create a checklist with which the international students could discover Amsterdam</p><p>To help him with the project he asked <a href="http://sophieanne.nl/">Sophie Peijnenburg</a> and me. Sophie for the content, Mees for the Front end and me for the Back end. During the project we stood in direct contact with the client, Rose Leighton and later during the project with the MIC minor students.</p>`,
+		text: `<p>As winner of the project ISGA (International Students Guide Amsterdam), <a href="https://meesrutten.me/">Mees Rutten</a> had the opportunity to make his idea into a functioning product. His idea was to create a checklist with which the international students could discover Amsterdam</p><p>To help him with the project he asked <a href="http://sophieanne.nl/">Sophie Peijnenburg</a> and me. Sophie for the content, Mees for the Front end and me for the Back end. During the project we stood in direct contact with the client, Rose Leighton and later during the project with the MIC minor students.</p><br><br><br><br><br><br><br>`,
 		for: 'School',
 		thumbnail: '/image/amsterdone-512.png',
 		texture: '/image/amsterdone-512.png',
