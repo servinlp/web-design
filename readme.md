@@ -86,3 +86,11 @@ For Marijnwe (the people who's user was marijn) initially we expected him to pri
 ### Known issues
 
 - When you keep tabbing (without developers tools open) you will eventually end up at the start of the website with the focus. Then when focusing on the canvas element it will focus the last object. This because that is the last known tabIndex
+
+### Resit (Herkansing)
+
+For the resit there where a few things missing from the website. (This mostly because I focussed more on my own experiment then on the project.) So for the resit I mainly needed to change my user scenario to one that has something I want the users to do. And to add more of a flow to the website.
+
+Changing the user scenario was pretty easy because I already knew what I wanted my users to do. The website is a portfolio website so I wanted people to contact me for an internship. So I changed my user scenario form "As `$user` i want to see the projects in there right context." to "As `$user` i want to see the projects in there right context to see if this person is fit to hire as an intern.". To make it so that people actually contact me I desided to add an contact bar at the end of every project page. There you can now find my phone number and email adress.
+
+To create more of a flow through my website I didn't want the users to need to go back to the home page if they where on a project page. I wanted them to be able to continue browsing and just keep clicking throught the projects. For this on the project pages I added 2 thumbnails (and links) of 2 random projects. One project of a 3D object and one of a 2D project. This because I want the user to hire me for an webgl internship but also see that is do/did much more than play around with 3D. This is why it will always show one 3D and one 2D project.
