@@ -26,6 +26,7 @@
 		"import/extensions": [ "error", "always" ],
 		"prefer-destructuring": [ "error", { "array": false } ],
 		"array-bracket-spacing": [ "error", "always" ],
-		"object-curly-newline": 0
+		"object-curly-newline": 0,
+		"radix": [ "error", "as-needed" ]
     }
 }
