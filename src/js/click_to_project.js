@@ -95,12 +95,8 @@ function click( element, tab ) {
 function goToProject( box ) {
 
 	const container = box.parent,
-		// mesh = container.children.filter( el => el.myObject )[ 0 ],
 		info = container.info,
 		{ x, y, z } = info.positionTo
-
-	console.log( 'container', container )
-	// console.log( 'mesh', mesh )
 
 	// On tab and enter you will have the wireframe focuessed
 	if ( box.material.wireframe ) {
@@ -124,13 +120,7 @@ function goToProject( box ) {
 		x,
 		y,
 		z,
-		ease: Power4.easeInOut,
-		onComplete() {
-
-			console.log( 'box.material.opacity', box.material.opacity )
-			// console.log( 'mesh.material.opacity', mesh.material.opacity )
-
-		}
+		ease: Power4.easeInOut
 	} )
 
 	if ( info.rotateTo ) {
@@ -151,8 +141,6 @@ function goToProject( box ) {
 }
 
 function hideAllOthers( allExept ) {
-
-	console.log( 'allExept.length', allExept.length )
 
 	allExept.forEach( el => {
 

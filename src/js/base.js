@@ -4,7 +4,6 @@ const scene = new THREE.Scene(),
 	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / ( window.innerHeight * 1.5 ), 0.1, 1000 ),
 	renderer = new THREE.WebGLRenderer(),
 	canvas = renderer.domElement
-	// controls = new THREE.OrbitControls( camera )
 
 scene.goRaycast = true
 scene.tabIndex = 0
@@ -12,7 +11,6 @@ scene.tabArray = []
 scene.subTabArray = []
 
 camera.position.z = 20
-// controls.enableKeys = false
 
 renderer.setSize( window.innerWidth, window.innerHeight * 1.5 )
 renderer.setPixelRatio( window.devicePixelRatio )
@@ -64,5 +62,4 @@ export {
 	renderer,
 	raycaster,
 	mouse
-	// controls
 }

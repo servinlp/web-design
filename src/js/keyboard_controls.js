@@ -1,6 +1,5 @@
 import { scene } from './base.js'
 import { click } from './click_to_project.js'
-import { rotation } from './rotate_object.js'
 
 const controlList = {}
 
@@ -31,13 +30,11 @@ function checkKeysPressed( e ) {
 	if ( controlList.Enter && scene.tabArray[ scene.tabIndex - 1 ] ) {
 
 		const element = scene.tabArray[ scene.tabIndex - 1 ]
-		// allExept = scene.tabArray.filter( el => el !== element )
 
 		click( element, true )
 
 		scene.tabArray = [ element ]
 		scene.tabIndex = 0
-		// element.parent.enebleFocus = false
 
 	}
 

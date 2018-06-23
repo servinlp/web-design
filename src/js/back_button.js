@@ -40,7 +40,7 @@ function renderBackButton( transition, tab ) {
 					if ( tab ) {
 
 						button.focus()
-				
+
 					}
 
 				}
@@ -76,11 +76,13 @@ function goBack( e ) {
 		this.target.forEach( el => {
 
 			if ( el ) {
-				
+
 				el.remove()
 
 			}
+
 		} )
+
 		section.appendChild( renderPageTitle( true ) )
 
 		scene.subTabArray.forEach( el => {
@@ -101,8 +103,6 @@ function goBack( e ) {
 		scene.goRaycast = true
 
 	} } )
-
-	// scene.tabIndex = 0
 
 	scene.tabArray.forEach( el => {
 

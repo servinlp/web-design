@@ -103,7 +103,6 @@ function goToAbout( e ) {
 
 		el.parent.enableClick = false
 		el.parent.enableFocus = false
-		console.log( el.parent )
 
 	} )
 

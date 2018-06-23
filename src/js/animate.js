@@ -10,7 +10,7 @@ function animate() {
 
 		if ( intersects.length > 0 ) {
 
-			for ( let i = 0; i < intersects.length; i++ ) {
+			for ( let i = 0; i < intersects.length; i += 1 ) {
 
 				if ( intersects[ i ].object.parent.enableFocus ) {
 
@@ -29,13 +29,13 @@ function animate() {
 				if ( el.parent.enableFocus && !el.tabFocus ) {
 
 					el.focus( false )
-					
+
 				}
 
 			}
 
 		} )
-		
+
 	}
 
 	renderer.render( scene, camera )

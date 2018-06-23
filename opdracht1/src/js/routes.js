@@ -42,23 +42,15 @@ class Routes {
 	get paths() {
 
 		return {
-			'/': req => {
+			'/': () => {
 
-                                document.body.appendChild( renderSection( '/' ) )
-                                document.body.appendChild( renderOverview() )
+				document.body.appendChild( renderSection( '/' ) )
+				document.body.appendChild( renderOverview() )
 
 			},
-			'/project/:project': req => {
-
-                                console.log( `project: ${ req.paths.params.project }` )
-
-                        },
-                        '/about': req => {
-
-                                console.log( 'about' )
-
-                        }
-        	}
+			'/project/:project': () => {},
+			'/about': () => {}
+		}
 
 	}
 

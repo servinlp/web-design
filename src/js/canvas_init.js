@@ -27,9 +27,6 @@ function renderCanvas() {
 
 function initCanvas() {
 
-	// const axesHelper = new THREE.AxesHelper( 5 )
-	// scene.add( axesHelper )
-
 	THREE.Mesh.prototype.focus = focus
 	THREE.Mesh.prototype.setFocusState = setFocusState
 	THREE.Mesh.prototype.getFocusState = getFocusState
@@ -47,7 +44,6 @@ function initCanvas() {
 
 		if ( allControlList.Tab !== undefined ) {
 
-			console.log( 'onfocus' )
 			keyBoardControlsDown( 'Tab' )
 			keyBoardControlsUp( 'Tab' )
 
@@ -56,8 +52,6 @@ function initCanvas() {
 	} )
 
 	renderer.domElement.addEventListener( 'blur', () => {
-
-		console.log( 'onblur', controlList )
 
 		if ( controlList.Tab && controlList.Shift ) {
 
@@ -85,9 +79,7 @@ function createProject( obj ) {
 	const container = new THREE.Object3D(),
 		geometry = new THREE.BoxGeometry( obj.boxSize.x, obj.boxSize.y, obj.boxSize.z ),
 		material = new THREE.MeshBasicMaterial( {
-			// wireframe: true,
 			color: 0x000000,
-			// color: 0xffffff,
 			transparent: true,
 			opacity: 0
 		} ),
@@ -109,10 +101,6 @@ function createProject( obj ) {
 
 			OBJLoader.load( obj.object, object => {
 
-				// object.detail.loaderRootNode.scale.x = obj.scale
-				// object.detail.loaderRootNode.scale.y = obj.scale
-				// object.detail.loaderRootNode.scale.z = obj.scale
-
 				object.scale.x = obj.scale
 				object.scale.y = obj.scale
 				object.scale.z = obj.scale
@@ -123,15 +111,13 @@ function createProject( obj ) {
 
 			}, () => {}, err => {
 
-				// error
-				console.log( err )
+				console.error( err )
 
 			} )
 
 		}, () => {}, err => {
 
-			// error
-			console.log( err )
+			console.error( err )
 
 		} )
 
@@ -174,6 +160,3 @@ function createProject( obj ) {
 }
 
 export default renderCanvas
-// export {
-// 	projectsElements
-// }
